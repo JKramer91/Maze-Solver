@@ -18,11 +18,11 @@ class Window:
         while self.__running:
             self.redraw()
         print("Window closed...")
-        
+
     def close(self):
         self.__running = False
 
-    def draw_line(self, line, fill_color):
+    def draw_line(self, line, fill_color="black"):
         line.draw(self.__canvas, fill_color)
 
 
