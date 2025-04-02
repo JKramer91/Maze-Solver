@@ -31,17 +31,6 @@ class Tests(unittest.TestCase):
     
     def test_maze_break_entrance_and_exit(self):
         m1 = Maze(0, 0, 12, 10, 20, 20)
-        
-        self.assertEqual(
-            m1._cells[0][0].has_top_wall,
-            True
-        )
-
-        self.assertEqual(
-            m1._cells[m1._num_cols - 1][m1._num_rows - 1].has_bottom_wall,
-            True
-        )
-
         m1._break_entrance_and_exit()
 
         self.assertEqual(
@@ -53,6 +42,15 @@ class Tests(unittest.TestCase):
             m1._cells[m1._num_cols - 1][m1._num_rows - 1].has_bottom_wall,
             False
         )
+
+    def test_maze_reset_cells_visited(self):
+        m1 = Maze(5, 5, 12, 10, 8, 8)
+        for col in m1._cells:
+            for cell in col:
+                self.assertEqual(
+                    cell._visited,
+                    False
+                )
 
 
 
